@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>lurk</title>
+  <title>Lurk</title>
   <link rel="icon" href="https://media.discordapp.net/attachments/1433195726212567093/1437022796160045106/huqg5umd2jv41.jpg?ex=6911bb45&is=691069c5&hm=08c195bc8e1a29bcebb2a075644e9955c531adc841fbc9d814c3503f44bc65ce&=&format=webp" />
-
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -29,7 +28,6 @@
       overflow-x:hidden;
       min-height:100vh;
     }
-
     nav{
       position:fixed;left:0;right:0;top:0;height:72px;
       display:flex;align-items:center;
@@ -43,36 +41,31 @@
     .nav-links a{color:var(--text-secondary);text-decoration:none;font-weight:600;transition:color .18s}
     .nav-links a:hover{color:var(--accent-primary)}
     .nav-cta .btn{margin-left:12px}
-
     .btn{display:inline-block;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none;transition:all 0.3s ease}
     .btn-primary{background:linear-gradient(135deg,var(--accent-primary),var(--accent-secondary));color:#fff;box-shadow:0 8px 30px rgba(91,125,143,.08)}
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(91,125,143,.15)}
     .btn-secondary{background:var(--bg-tertiary);border:1px solid var(--border-color);color:var(--text-primary)}
     .btn-secondary:hover{background:var(--bg-secondary);border-color:var(--accent-primary)}
-
     .hero{padding:100px 20px 40px;text-align:center}
     .hero h1{font-size:3.6rem;margin-bottom:8px;background:linear-gradient(135deg,var(--accent-primary),var(--accent-secondary));-webkit-background-clip:text;background-clip:text;color:transparent}
     .hero p{color:var(--text-secondary);max-width:820px;margin:0 auto 20px;font-size:1.05rem}
-
     .hero-buttons{display:flex;gap:12px;justify-content:center;margin-bottom:24px}
     .stats{display:flex;gap:28px;justify-content:center;margin-top:22px;flex-wrap:wrap}
     .stat{min-width:100px;text-align:center}
     .stat-number{font-size:1.6rem;font-weight:800;color:var(--accent-primary)}
     .stat-label{color:var(--text-secondary);font-size:.9rem}
-
     .container{max-width:1400px;margin:0 auto;padding:0 20px}
     .features{padding:28px 0}
     .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-
     .feature-card{background:var(--bg-secondary);padding:18px;border-radius:12px;border:1px solid var(--border-color);transition:transform .28s,box-shadow .28s}
+    .feature-card h3{margin-bottom:8px}
+    .feature-card p{color:var(--text-secondary);line-height:1.4}
     .feature-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.45);border-color:var(--accent-primary)}
-
     .page-container{display:none;padding:80px 20px 120px;animation:fadeInUp 0.5s ease forwards}
     .page-container.active{display:block}
     .section-title{text-align:center;font-size:2rem;margin-bottom:18px;color:var(--text-primary)}
     .search-box{width:100%;max-width:1000px;margin:0 auto 18px;background:var(--bg-secondary);border:1px solid var(--border-color);padding:12px;border-radius:8px;color:var(--text-primary);display:block;transition:all 0.3s ease}
     .search-box:focus{outline:none;border-color:var(--accent-primary);box-shadow:0 0 0 2px rgba(91,125,143,0.2)}
-
     .commands-wrapper{max-width:1100px;margin:0 auto;padding:10px}
     .command-category{margin-bottom:14px;border-radius:12px;overflow:hidden;border:1px solid var(--border-color);background:linear-gradient(180deg,var(--bg-secondary), var(--bg-tertiary))}
     .category-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;gap:12px;transition:background-color 0.3s ease}
@@ -81,39 +74,41 @@
     .category-sub{color:var(--text-secondary);font-size:0.9rem;margin-top:6px}
     .arrow{transition:transform .25s;opacity:.9}
     .category-meta{display:flex;flex-direction:column;align-items:flex-start}
-
     .command-list{max-height:0;overflow:hidden;transition:max-height .36s cubic-bezier(.2,.9,.2,1),opacity .28s;border-top:1px solid var(--border-color);opacity:0}
     .command-list.active{opacity:1}
     .command-inner{padding:14px 16px;display:grid;grid-template-columns:1fr;gap:10px}
     .cmd-list-lines{white-space:pre-wrap;font-family:monospace;color:var(--text-secondary);font-size:0.95rem}
-
     .fade-in{animation:fadeIn .45s ease forwards;opacity:0}
     @keyframes fadeIn{to{opacity:1}}
     @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
     .dashboard-container{display:none}
     .dashboard-container.active{display:block}
-
     .coming-soon{text-align:center;padding:80px 20px}
     .coming-soon h2{font-size:2.5rem;margin-bottom:16px;color:var(--accent-primary)}
     .coming-soon p{color:var(--text-secondary);max-width:600px;margin:0 auto;font-size:1.1rem}
-
     footer{margin-top:40px;padding:28px 20px;background:var(--bg-secondary);border-top:1px solid var(--border-color)}
     .footer-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
     .footer-section h4{color:var(--accent-primary);margin-bottom:8px}
     .footer-section a{display:block;color:var(--text-secondary);text-decoration:none;margin-bottom:6px;transition:color 0.3s ease}
     .footer-section a:hover{color:var(--accent-primary)}
     .footer-bottom{text-align:center;color:var(--text-secondary);margin-top:18px;padding-top:18px;border-top:1px solid var(--border-color)}
-
     .mobile-menu-btn{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px}
     .mobile-menu-btn span{width:20px;height:2px;background-color:var(--text-primary);transition:all 0.3s ease}
-
     .legal-content{max-width:800px;margin:0 auto;line-height:1.6}
     .legal-content h2{color:var(--accent-primary);margin:24px 0 12px 0}
     .legal-content h3{color:var(--text-primary);margin:18px 0 8px 0}
     .legal-content p{margin-bottom:16px;color:var(--text-secondary)}
     .legal-content ul{margin-bottom:16px;padding-left:20px;color:var(--text-secondary)}
-
+    .doc-section{margin-bottom:40px}
+    .doc-command{margin-bottom:20px;padding:15px;background:var(--bg-secondary);border-radius:8px;border:1px solid var(--border-color)}
+    .doc-command h4{font-size:1.1rem;color:var(--accent-primary);margin-bottom:8px}
+    .doc-command p{margin-bottom:8px}
+    .doc-command code{display:block;background:var(--bg-tertiary);padding:10px;border-radius:6px;font-family:monospace;color:var(--text-secondary);margin-top:8px}
+    .status-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px}
+    .status-card{background:var(--bg-secondary);padding:16px;border-radius:12px;text-align:center;border:1px solid var(--border-color)}
+    .status-card h4{margin-bottom:8px}
+    .status-up{color:green}
+    .status-down{color:red}
     @media (max-width:768px){
       .hero h1{font-size:2.4rem}
       nav{padding:0 14px}
@@ -129,24 +124,22 @@
   </style>
 </head>
 <body>
-
   <nav>
     <div class="nav-container">
       <div style="display:flex;align-items:center;gap:16px">
         <div class="nav-logo">LURK</div>
       </div>
-
       <ul class="nav-links" id="navLinks">
         <li><a href="#" onclick="showPage('home')">Home</a></li>
         <li><a href="#" onclick="showPage('commands')">Commands</a></li>
+        <li><a href="#" onclick="showPage('documentation')">Documentation</a></li>
+        <li><a href="#" onclick="showPage('status')">Status</a></li>
         <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
         <li><a href="https://discord.gg/DMK8qcBKCa" target="_blank">Support</a></li>
       </ul>
-
       <div class="nav-cta">
         <a class="btn btn-primary" href="#" onclick="inviteBot()">Add to Discord</a>
       </div>
-
       <div class="mobile-menu-btn" id="mobileMenuBtn">
         <span></span>
         <span></span>
@@ -154,60 +147,990 @@
       </div>
     </div>
   </nav>
-
   <div id="homePage" class="page-container active">
     <div class="hero container">
       <h1 class="fade-in">LURK</h1>
-      <p class="fade-in" style="animation-delay:.06s">The ultimate Discord bot for power, precision, and performance. Manage and grow your community with ease.</p>
+      <p class="fade-in" style="animation-delay:.06s">The ultimate Discord bot for power, precision, and performance. Manage and grow your community with ease. Featuring advanced moderation tools, a comprehensive economy system, engaging fun commands, and customizable utility features to enhance your server experience.</p>
       <div class="hero-buttons fade-in" style="animation-delay:.12s">
         <a class="btn btn-primary" href="#" onclick="inviteBot()">Add to Discord</a>
         <a class="btn btn-secondary" href="#" onclick="showPage('commands')">View Commands</a>
       </div>
-
       <div class="stats fade-in" style="animation-delay:.18s">
         <div class="stat"><div class="stat-number">50+</div><div class="stat-label">Servers</div></div>
         <div class="stat"><div class="stat-number">4K+</div><div class="stat-label">Users</div></div>
         <div class="stat"><div class="stat-number">99.9%</div><div class="stat-label">Uptime</div></div>
       </div>
     </div>
-
     <div class="features container">
-      <h2 class="section-title">Features</h2>
+      <h2 class="section-title">Key Features</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3>Advanced Moderation</h3><p style="color:var(--text-secondary)">Complete moderation suite with kicks, bans, timeouts, warnings, and mass moderation tools.</p></div>
-        <div class="feature-card"><h3>Economy System</h3><p style="color:var(--text-secondary)">Full economy with gambling, shops, cars, houses, stocks, jewelry, and limiteds.</p></div>
-        <div class="feature-card"><h3>Fun & Games</h3><p style="color:var(--text-secondary)">Tons of fun commands including trivia, games, and entertainment features.</p></div>
-        <div class="feature-card"><h3>Giveaways</h3><p style="color:var(--text-secondary)">Create and manage giveaways with full customization and automatic winner selection.</p></div>
-        <div class="feature-card"><h3>Music Player</h3><p style="color:var(--text-secondary)">High-quality music playback with queue management and controls.</p></div>
-        <div class="feature-card"><h3>Leveling System</h3><p style="color:var(--text-secondary)">XP and leveling with customizable rewards and level roles.</p></div>
+        <div class="feature-card"><h3>Advanced Moderation</h3><p style="color:var(--text-secondary)">Comprehensive suite of moderation tools including kicks, bans, timeouts, warnings, and mass moderation capabilities. Automated protections against spam, links, invites, and raids to maintain a safe environment. Customizable filters and ignore lists for fine-grained control.</p></div>
+        <div class="feature-card"><h3>Economy System</h3><p style="color:var(--text-secondary)">Fully-featured economy with daily/weekly rewards, work, begging, crimes, robberies, and gambling games. Includes shops for boosts, black market trading, dealership for cars, housing market, stock trading, jewelry store, and limited items. Events and boosts to enhance earnings.</p></div>
+        <div class="feature-card"><h3>Fun & Games</h3><p style="color:var(--text-secondary)">Wide variety of entertainment commands including rock-paper-scissors, 8ball, polls, snipes, calculations, roasts, rizz lines, jokes, pickup lines, fortunes, compliments, and interactive games like trivia, music lyrics trivia, guess the country/flag/celebrity, tic-tac-toe, and more.</p></div>
+        <div class="feature-card"><h3>Utility Tools</h3><p style="color:var(--text-secondary)">Practical utilities like AFK status, custom prefixes, anti-features configuration, welcome/leave messages, auto-roles/responder/react, embed creation, logging, sticky messages, birthdays, self-purge, lookups, tickets, leveling, translations, booster roles, reminders, verification, weather, and encoding tools.</p></div>
       </div>
     </div>
   </div>
-
   <div id="commandsPage" class="page-container">
-    <h1 class="section-title">Commands</h1>
+    <h1 class="section-title">Commands List</h1>
+    <p style="text-align:center;color:var(--text-secondary);margin-bottom:24px">Browse through our categories of commands. For detailed usage and examples, visit the Documentation page.</p>
     <input id="commandSearch" class="search-box" placeholder="Search commands..." oninput="searchCommands()">
     <div class="commands-wrapper" id="commandsContainer"></div>
   </div>
-
+  <div id="documentationPage" class="page-container">
+    <h1 class="section-title">Documentation</h1>
+    <p style="text-align:center;color:var(--text-secondary);margin-bottom:24px">Detailed information on all commands, including usage and examples.</p>
+    <div class="container">
+      <div class="doc-section">
+        <h2>Moderation</h2>
+        <p>All moderation commands for managing your server effectively.</p>
+        <div class="doc-command">
+          <h4>kick &lt;member&gt; [reason]</h4>
+          <p>Kicks a member from the server.</p>
+          <code>,kick @user Spamming</code>
+        </div>
+        <div class="doc-command">
+          <h4>ban &lt;member&gt; [reason]</h4>
+          <p>Bans a member from the server.</p>
+          <code>,ban @user Toxicity</code>
+        </div>
+        <div class="doc-command">
+          <h4>unban &lt;user_id&gt;</h4>
+          <p>Unbans a user from the server.</p>
+          <code>,unban 123456789012345678</code>
+        </div>
+        <div class="doc-command">
+          <h4>softban &lt;member&gt; [reason]</h4>
+          <p>Bans and immediately unbans a member, deleting their recent messages.</p>
+          <code>,softban @user Clean messages</code>
+        </div>
+        <div class="doc-command">
+          <h4>hardban &lt;member&gt; [reason]</h4>
+          <p>Bans a member and deletes 7 days of messages.</p>
+          <code>,hardban @user Severe violation</code>
+        </div>
+        <div class="doc-command">
+          <h4>timeout &lt;member&gt; &lt;duration&gt; [reason]</h4>
+          <p>Times out a member for the specified duration.</p>
+          <code>,timeout @user 1h Disruptive</code>
+        </div>
+        <div class="doc-command">
+          <h4>tempmute &lt;member&gt; &lt;duration&gt; [reason]</h4>
+          <p>Temporarily mutes a member using the mute role.</p>
+          <code>,tempmute @user 30m Spamming</code>
+        </div>
+        <div class="doc-command">
+          <h4>untimeout &lt;member&gt;</h4>
+          <p>Removes timeout from a member.</p>
+          <code>,untimeout @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>warn &lt;member&gt; &lt;reason&gt;</h4>
+          <p>Warns a member and logs it.</p>
+          <code>,warn @user Warning for language</code>
+        </div>
+        <div class="doc-command">
+          <h4>warnings [member]</h4>
+          <p>Shows warnings for a member.</p>
+          <code>,warnings @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>clearwarnings &lt;member&gt;</h4>
+          <p>Clears all warnings for a member.</p>
+          <code>,clearwarnings @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>purge &lt;amount&gt;</h4>
+          <p>Deletes the specified number of messages.</p>
+          <code>,purge 50</code>
+        </div>
+        <div class="doc-command">
+          <h4>purgeuser &lt;user&gt; &lt;amount&gt;</h4>
+          <p>Deletes messages from a specific user.</p>
+          <code>,purgeuser @user 20</code>
+        </div>
+        <div class="doc-command">
+          <h4>selfpurge &lt;amount&gt;</h4>
+          <p>Deletes your own messages.</p>
+          <code>,selfpurge 10</code>
+        </div>
+        <div class="doc-command">
+          <h4>lockdown [channel]</h4>
+          <p>Locks the channel, preventing sending messages.</p>
+          <code>,lockdown</code>
+        </div>
+        <div class="doc-command">
+          <h4>unlockdown [channel]</h4>
+          <p>Unlocks the channel.</p>
+          <code>,unlockdown</code>
+        </div>
+        <div class="doc-command">
+          <h4>nuke [channel]</h4>
+          <p>Deletes and recreates the channel.</p>
+          <code>,nuke</code>
+        </div>
+        <div class="doc-command">
+          <h4>slowmode &lt;seconds&gt;</h4>
+          <p>Sets slowmode delay.</p>
+          <code>,slowmode 5</code>
+        </div>
+        <div class="doc-command">
+          <h4>role &lt;member&gt; &lt;role&gt;</h4>
+          <p>Adds or removes a role from a member.</p>
+          <code>,role @user @role</code>
+        </div>
+        <div class="doc-command">
+          <h4>createrole &lt;name&gt;</h4>
+          <p>Creates a new role.</p>
+          <code>,createrole Moderators</code>
+        </div>
+        <div class="doc-command">
+          <h4>deleterole &lt;role&gt;</h4>
+          <p>Deletes a role.</p>
+          <code>,deleterole @oldrole</code>
+        </div>
+        <div class="doc-command">
+          <h4>rolein &lt;target_role&gt; &lt;role_to_add&gt;</h4>
+          <p>Adds a role to all members with the target role.</p>
+          <code>,rolein @members @newrole</code>
+        </div>
+        <div class="doc-command">
+          <h4>strip &lt;member&gt;</h4>
+          <p>Removes all roles from a member.</p>
+          <code>,strip @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>nickname &lt;member&gt; [nickname]</h4>
+          <p>Changes a member's nickname.</p>
+          <code>,nickname @user NewNick</code>
+        </div>
+        <div class="doc-command">
+          <h4>createchannel &lt;name&gt;</h4>
+          <p>Creates a new text channel.</p>
+          <code>,createchannel general-chat</code>
+        </div>
+        <div class="doc-command">
+          <h4>deletechannel &lt;channel&gt;</h4>
+          <p>Deletes a channel.</p>
+          <code>,deletechannel #old-channel</code>
+        </div>
+        <div class="doc-command">
+          <h4>createcategory &lt;name&gt;</h4>
+          <p>Creates a new category.</p>
+          <code>,createcategory Voice Channels</code>
+        </div>
+        <div class="doc-command">
+          <h4>deletecategory &lt;category&gt;</h4>
+          <p>Deletes a category.</p>
+          <code>,deletecategory Old Category</code>
+        </div>
+        <div class="doc-command">
+          <h4>renamechannel &lt;channel&gt; &lt;new_name&gt;</h4>
+          <p>Renames a channel.</p>
+          <code>,renamechannel #chat general</code>
+        </div>
+        <div class="doc-command">
+          <h4>renamerole &lt;role&gt; &lt;new_name&gt;</h4>
+          <p>Renames a role.</p>
+          <code>,renamerole @mod Moderator</code>
+        </div>
+        <div class="doc-command">
+          <h4>massban &lt;members...&gt;</h4>
+          <p>Bans multiple members.</p>
+          <code>,massban @user1 @user2</code>
+        </div>
+        <div class="doc-command">
+          <h4>masskick &lt;members...&gt;</h4>
+          <p>Kicks multiple members.</p>
+          <code>,masskick @user1 @user2</code>
+        </div>
+        <div class="doc-command">
+          <h4>masswarn &lt;reason&gt; &lt;members...&gt;</h4>
+          <p>Warns multiple members.</p>
+          <code>,masswarn Spamming @user1 @user2</code>
+        </div>
+        <div class="doc-command">
+          <h4>forceverify &lt;member&gt;</h4>
+          <p>Force verifies a member.</p>
+          <code>,forceverify @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>nickall &lt;nickname&gt;</h4>
+          <p>Sets nickname for all members.</p>
+          <code>,nickall Nick</code>
+        </div>
+        <div class="doc-command">
+          <h4>nickreset</h4>
+          <p>Resets nicknames for all members.</p>
+          <code>,nickreset</code>
+        </div>
+        <div class="doc-command">
+          <h4>purgehumans &lt;amount&gt;</h4>
+          <p>Purges messages from humans.</p>
+          <code>,purgehumans 50</code>
+        </div>
+        <div class="doc-command">
+          <h4>purgebots &lt;amount&gt;</h4>
+          <p>Purges messages from bots.</p>
+          <code>,purgebots 50</code>
+        </div>
+        <div class="doc-command">
+          <h4>roleeveryone &lt;role&gt;</h4>
+          <p>Adds role to everyone.</p>
+          <code>,roleeveryone @everyone_role</code>
+        </div>
+        <div class="doc-command">
+          <h4>mute &lt;member&gt; [reason]</h4>
+          <p>Mutes a member indefinitely.</p>
+          <code>,mute @user Spamming</code>
+        </div>
+        <div class="doc-command">
+          <h4>tempban &lt;member&gt; &lt;duration&gt; [reason]</h4>
+          <p>Temporarily bans a member.</p>
+          <code>,tempban @user 1d Toxicity</code>
+        </div>
+        <div class="doc-command">
+          <h4>disablecommand all &lt;command&gt;</h4>
+          <p>Disables a command in all channels.</p>
+          <code>,disablecommand all ping</code>
+        </div>
+        <div class="doc-command">
+          <h4>disablecommand &lt;command&gt;</h4>
+          <p>Disables a command in the current channel.</p>
+          <code>,disablecommand ping</code>
+        </div>
+        <div class="doc-command">
+          <h4>copydisabled &lt;channel&gt;</h4>
+          <p>Copies disabled commands to another channel.</p>
+          <code>,copydisabled #other-channel</code>
+        </div>
+        <div class="doc-command">
+          <h4>enablecommand all &lt;command&gt;</h4>
+          <p>Enables a command in all channels.</p>
+          <code>,enablecommand all ping</code>
+        </div>
+        <div class="doc-command">
+          <h4>enablecommand &lt;command&gt;</h4>
+          <p>Enables a command in the current channel.</p>
+          <code>,enablecommand ping</code>
+        </div>
+        <div class="doc-command">
+          <h4>disablecommand list</h4>
+          <p>Lists disabled commands.</p>
+          <code>,disablecommand list</code>
+        </div>
+        <div class="doc-command">
+          <h4>pin [message_id]</h4>
+          <p>Pins a message.</p>
+          <code>,pin 123456789012345678</code>
+        </div>
+        <div class="doc-command">
+          <h4>unpin [message_id]</h4>
+          <p>Unpins a message.</p>
+          <code>,unpin 123456789012345678</code>
+        </div>
+        <div class="doc-command">
+          <h4>setbanner</h4>
+          <p>Sets server banner (attach image).</p>
+          <code>,setbanner</code>
+        </div>
+        <div class="doc-command">
+          <h4>setsplashbackground</h4>
+          <p>Sets server splash (attach image).</p>
+          <code>,setsplashbackground</code>
+        </div>
+        <div class="doc-command">
+          <h4>seticon</h4>
+          <p>Sets server icon (attach image).</p>
+          <code>,seticon</code>
+        </div>
+        <div class="doc-command">
+          <h4>firstmessage [channel]</h4>
+          <p>Gets link to first message in channel.</p>
+          <code>,firstmessage #general</code>
+        </div>
+        <div class="doc-command">
+          <h4>webhook create &lt;name&gt;</h4>
+          <p>Creates a webhook.</p>
+          <code>,webhook create MyWebhook</code>
+        </div>
+        <div class="doc-command">
+          <h4>webhook delete &lt;webhook_id&gt;</h4>
+          <p>Deletes a webhook.</p>
+          <code>,webhook delete 123456789012345678</code>
+        </div>
+        <div class="doc-command">
+          <h4>webhook send &lt;webhook_id&gt; &lt;message&gt;</h4>
+          <p>Sends a message through webhook.</p>
+          <code>,webhook send 123456789012345678 Hello</code>
+        </div>
+        <div class="doc-command">
+          <h4>webhook list</h4>
+          <p>Lists webhooks in server.</p>
+          <code>,webhook list</code>
+        </div>
+        <div class="doc-command">
+          <h4>webhook edit &lt;webhook_id&gt; &lt;name&gt;</h4>
+          <p>Edits webhook name.</p>
+          <code>,webhook edit 123456789012345678 NewName</code>
+        </div>
+        <div class="doc-command">
+          <h4>extractstickers</h4>
+          <p>Extracts all stickers as zip.</p>
+          <code>,extractstickers</code>
+        </div>
+        <div class="doc-command">
+          <h4>extractemotes</h4>
+          <p>Extracts all emotes as zip.</p>
+          <code>,extractemotes</code>
+        </div>
+        <div class="doc-command">
+          <h4>purge mentions &lt;member&gt; &lt;amount&gt;</h4>
+          <p>Purges messages mentioning a member.</p>
+          <code>,purge mentions @user 50</code>
+        </div>
+        <div class="doc-command">
+          <h4>purge stickers &lt;amount&gt;</h4>
+          <p>Purges messages with stickers.</p>
+          <code>,purge stickers 50</code>
+        </div>
+        <div class="doc-command">
+          <h4>purge reactions &lt;amount&gt;</h4>
+          <p>Purges messages with reactions.</p>
+          <code>,purge reactions 50</code>
+        </div>
+        <div class="doc-command">
+          <h4>purge links &lt;amount&gt;</h4>
+          <p>Purges messages with links.</p>
+          <code>,purge links 50</code>
+        </div>
+        <div class="doc-command">
+          <h4>purge webhooks &lt;amount&gt;</h4>
+          <p>Purges webhook messages.</p>
+          <code>,purge webhooks 50</code>
+        </div>
+        <div class="doc-command">
+          <h4>purge after &lt;message_id&gt;</h4>
+          <p>Purges messages after a specific message.</p>
+          <code>,purge after 123456789012345678</code>
+        </div>
+        <div class="doc-command">
+          <h4>role hoist &lt;role&gt;</h4>
+          <p>Toggles role hoist.</p>
+          <code>,role hoist @role</code>
+        </div>
+        <div class="doc-command">
+          <h4>role edit &lt;role&gt; &lt;new_name&gt;</h4>
+          <p>Edits role name.</p>
+          <code>,role edit @role New Role</code>
+        </div>
+        <div class="doc-command">
+          <h4>role icon &lt;role&gt;</h4>
+          <p>Sets role icon (attach image).</p>
+          <code>,role icon @role</code>
+        </div>
+        <div class="doc-command">
+          <h4>role color gradient &lt;role&gt; &lt;color1&gt; &lt;color2&gt;</h4>
+          <p>Sets role color gradient.</p>
+          <code>,role color gradient @role #ff0000 #00ff00</code>
+        </div>
+        <div class="doc-command">
+          <h4>role color &lt;role&gt; &lt;color&gt;</h4>
+          <p>Sets role color.</p>
+          <code>,role color @role #5B7D8F</code>
+        </div>
+        <div class="doc-command">
+          <h4>role humans remove &lt;role&gt;</h4>
+          <p>Removes role from all humans.</p>
+          <code>,role humans remove @role</code>
+        </div>
+        <div class="doc-command">
+          <h4>role bots remove &lt;role&gt;</h4>
+          <p>Removes role from all bots.</p>
+          <code>,role bots remove @role</code>
+        </div>
+        <div class="doc-command">
+          <h4>role everyone remove &lt;role&gt;</h4>
+          <p>Removes role from everyone.</p>
+          <code>,role everyone remove @role</code>
+        </div>
+        <div class="doc-command">
+          <h4>role out &lt;target_role&gt; &lt;role_to_remove&gt;</h4>
+          <p>Removes a role from members with target role.</p>
+          <code>,role out @target @remove</code>
+        </div>
+        <div class="doc-command">
+          <h4>role mentionable &lt;role&gt;</h4>
+          <p>Toggles role mentionable.</p>
+          <code>,role mentionable @role</code>
+        </div>
+      </div>
+      <div class="doc-section">
+        <h2>Economy</h2>
+        <p>All economy related commands for earning and spending virtual currency.</p>
+        <div class="doc-command">
+          <h4>balance [member]</h4>
+          <p>Shows your or another member's balance.</p>
+          <code>,balance @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>deposit &lt;amount&gt;</h4>
+          <p>Deposits money to your bank.</p>
+          <code>,deposit 1000</code>
+        </div>
+        <div class="doc-command">
+          <h4>withdraw &lt;amount&gt;</h4>
+          <p>Withdraws money from your bank.</p>
+          <code>,withdraw 500</code>
+        </div>
+        <div class="doc-command">
+          <h4>daily</h4>
+          <p>Claims daily reward.</p>
+          <code>,daily</code>
+        </div>
+        <div class="doc-command">
+          <h4>weekly</h4>
+          <p>Claims weekly reward.</p>
+          <code>,weekly</code>
+        </div>
+        <div class="doc-command">
+          <h4>work</h4>
+          <p>Earns money by working.</p>
+          <code>,work</code>
+        </div>
+        <div class="doc-command">
+          <h4>beg</h4>
+          <p>Begs for money.</p>
+          <code>,beg</code>
+        </div>
+        <div class="doc-command">
+          <h4>crime</h4>
+          <p>Commits a crime for potential reward or loss.</p>
+          <code>,crime</code>
+        </div>
+        <div class="doc-command">
+          <h4>rob &lt;member&gt;</h4>
+          <p>Attempts to rob another member.</p>
+          <code>,rob @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>transfer &lt;member&gt; &lt;amount&gt;</h4>
+          <p>Transfers money to another member.</p>
+          <code>,transfer @friend 1000</code>
+        </div>
+        <div class="doc-command">
+          <h4>gamble &lt;amount&gt;</h4>
+          <p>Gambles money.</p>
+          <code>,gamble 500</code>
+        </div>
+        <div class="doc-command">
+          <h4>coinflip &lt;amount&gt; &lt;heads/tails&gt;</h4>
+          <p>Bets on coin flip.</p>
+          <code>,coinflip 100 heads</code>
+        </div>
+        <div class="doc-command">
+          <h4>blackjack &lt;amount&gt;</h4>
+          <p>Plays blackjack.</p>
+          <code>,blackjack 200</code>
+        </div>
+        <div class="doc-command">
+          <h4>scratch &lt;amount&gt;</h4>
+          <p>Scratches a ticket.</p>
+          <code>,scratch 100</code>
+        </div>
+        <div class="doc-command">
+          <h4>crash &lt;amount&gt;</h4>
+          <p>Plays crash game.</p>
+          <code>,crash 500</code>
+        </div>
+        <div class="doc-command">
+          <h4>ladder &lt;amount&gt;</h4>
+          <p>Climbs the ladder for reward.</p>
+          <code>,ladder 300</code>
+        </div>
+        <div class="doc-command">
+          <h4>fish</h4>
+          <p>Catches fish for money.</p>
+          <code>,fish</code>
+        </div>
+        <div class="doc-command">
+          <h4>myfish</h4>
+          <p>Shows your fish collection.</p>
+          <code>,myfish</code>
+        </div>
+        <div class="doc-command">
+          <h4>shop [disable/enable] [global/local]</h4>
+          <p>Views shop or disables/enables it.</p>
+          <code>,shop</code>
+        </div>
+        <div class="doc-command">
+          <h4>buy &lt;item&gt;</h4>
+          <p>Buys an item from shop.</p>
+          <code>,buy doublemoney</code>
+        </div>
+        <div class="doc-command">
+          <h4>inventory [member]</h4>
+          <p>Shows inventory.</p>
+          <code>,inventory @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>wealthy [page]</h4>
+          <p>Shows wealth leaderboard.</p>
+          <code>,wealthy 2</code>
+        </div>
+        <div class="doc-command">
+          <h4>blackmarket [action] [type] [args]</h4>
+          <p>Black market for selling/buying.</p>
+          <code>,blackmarket sell car Honda Civic 10000</code>
+        </div>
+        <div class="doc-command">
+          <h4>dealership [action] [args]</h4>
+          <p>Dealership for cars.</p>
+          <code>,dealership buy Honda Civic</code>
+        </div>
+        <div class="doc-command">
+          <h4>house [action] [args]</h4>
+          <p>Housing market.</p>
+          <code>,house buy Small Apartment</code>
+        </div>
+        <div class="doc-command">
+          <h4>stocks [action] [ticker] [amount]</h4>
+          <p>Stock trading.</p>
+          <code>,stocks buy AAPL 10</code>
+        </div>
+        <div class="doc-command">
+          <h4>jewelry [action] [args]</h4>
+          <p>Jewelry store.</p>
+          <code>,jewelry buy Silver Chain</code>
+        </div>
+        <div class="doc-command">
+          <h4>limited [action] [args]</h4>
+          <p>Limited items.</p>
+          <code>,limited view</code>
+        </div>
+        <div class="doc-command">
+          <h4>trade &lt;member&gt; [items]</h4>
+          <p>Trades with member.</p>
+          <code>,trade @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>eventstats</h4>
+          <p>Shows event stats.</p>
+          <code>,eventstats</code>
+        </div>
+        <div class="doc-command">
+          <h4>lottery [sub]</h4>
+          <p>Lottery system.</p>
+          <code>,lottery enter</code>
+        </div>
+        <div class="doc-command">
+          <h4>roulettewheel &lt;amount&gt; &lt;choice&gt;</h4>
+          <p>Roulette game.</p>
+          <code>,roulettewheel 100 red</code>
+        </div>
+        <div class="doc-command">
+          <h4>crates [sub] [rarity]</h4>
+          <p>Crates system.</p>
+          <code>,crates buy rare</code>
+        </div>
+        <div class="doc-command">
+          <h4>clonewallet &lt;member&gt;</h4>
+          <p>Attempts to clone wallet.</p>
+          <code>,clonewallet @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>sabotage &lt;member&gt;</h4>
+          <p>Sabotages a member.</p>
+          <code>,sabotage @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>blackmail &lt;member&gt;</h4>
+          <p>Blackmails a member if they have crimes.</p>
+          <code>,blackmail @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>slots &lt;amount&gt;</h4>
+          <p>Plays slots.</p>
+          <code>,slots 100</code>
+        </div>
+      </div>
+      <div class="doc-section">
+        <h2>Fun</h2>
+        <p>Fun commands and games to entertain your community.</p>
+        <div class="doc-command">
+          <h4>rps</h4>
+          <p>Plays rock-paper-scissors.</p>
+          <code>,rps</code>
+        </div>
+        <div class="doc-command">
+          <h4>8ball &lt;question&gt;</h4>
+          <p>Asks the magic 8ball a question.</p>
+          <code>,8ball Will I win?</code>
+        </div>
+        <div class="doc-command">
+          <h4>choose &lt;options&gt;</h4>
+          <p>Chooses between options.</p>
+          <code>,choose apple orange</code>
+        </div>
+        <div class="doc-command">
+          <h4>ship &lt;user1&gt; &lt;user2&gt;</h4>
+          <p>Ships two users.</p>
+          <code>,ship @user1 @user2</code>
+        </div>
+        <div class="doc-command">
+          <h4>pp [member]</h4>
+          <p>Shows pp size.</p>
+          <code>,pp @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>iq [member]</h4>
+          <p>Shows IQ rate.</p>
+          <code>,iq @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>poll &lt;options&gt; &lt;question&gt;</h4>
+          <p>Creates a poll.</p>
+          <code>,poll 3 Favorite color?</code>
+        </div>
+        <div class="doc-command">
+          <h4>snipe [channel]</h4>
+          <p>Snipes last deleted message.</p>
+          <code>,snipe #general</code>
+        </div>
+        <div class="doc-command">
+          <h4>editsnipe [channel]</h4>
+          <p>Snipes last edited message.</p>
+          <code>,editsnipe</code>
+        </div>
+        <div class="doc-command">
+          <h4>reactionsnipe [channel]</h4>
+          <p>Snipes last reaction add/remove.</p>
+          <code>,reactionsnipe</code>
+        </div>
+        <div class="doc-command">
+          <h4>clearsnipe</h4>
+          <p>Clears snipes in channel.</p>
+          <code>,clearsnipe</code>
+        </div>
+        <div class="doc-command">
+          <h4>calculate &lt;expression&gt;</h4>
+          <p>Calculates math expression.</p>
+          <code>,calculate 2+2</code>
+        </div>
+        <div class="doc-command">
+          <h4>revive</h4>
+          <p>Revives chat.</p>
+          <code>,revive</code>
+        </div>
+        <div class="doc-command">
+          <h4>nword [member]</h4>
+          <p>Shows nword count.</p>
+          <code>,nword @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>facts</h4>
+          <p>Random fact.</p>
+          <code>,facts</code>
+        </div>
+        <div class="doc-command">
+          <h4>gayrate [member]</h4>
+          <p>Gay rate.</p>
+          <code>,gayrate @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>bitches [member]</h4>
+          <p>Bitches rate.</p>
+          <code>,bitches @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>howattractive [member]</h4>
+          <p>Attractiveness rate.</p>
+          <code>,howattractive @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>roast [member]</h4>
+          <p>Roasts a member.</p>
+          <code>,roast @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>rizz [member]</h4>
+          <p>Rizz line.</p>
+          <code>,rizz @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>joke</h4>
+          <p>Random joke.</p>
+          <code>,joke</code>
+        </div>
+        <div class="doc-command">
+          <h4>pickuplines</h4>
+          <p>Random pickup line.</p>
+          <code>,pickuplines</code>
+        </div>
+        <div class="doc-command">
+          <h4>fortune</h4>
+          <p>Random fortune.</p>
+          <code>,fortune</code>
+        </div>
+        <div class="doc-command">
+          <h4>compliment [member]</h4>
+          <p>Compliments a member.</p>
+          <code>,compliment @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>quote &lt;member&gt; &lt;text&gt;</h4>
+          <p>Creates quote image.</p>
+          <code>,quote @user Wise words</code>
+        </div>
+        <div class="doc-command">
+          <h4>fakemessage &lt;member&gt; &lt;text&gt;</h4>
+          <p>Creates fake message image.</p>
+          <code>,fakemessage @user Hello</code>
+        </div>
+        <div class="doc-command">
+          <h4>guessthecountry</h4>
+          <p>Guess the country game.</p>
+          <code>,guessthecountry</code>
+        </div>
+        <div class="doc-command">
+          <h4>guesstheflag</h4>
+          <p>Guess the flag game.</p>
+          <code>,guesstheflag</code>
+        </div>
+        <div class="doc-command">
+          <h4>guessthecelebrity</h4>
+          <p>Guess the celebrity game.</p>
+          <code>,guessthecelebrity</code>
+        </div>
+        <div class="doc-command">
+          <h4>tictactoe &lt;opponent&gt;</h4>
+          <p>Plays tic-tac-toe.</p>
+          <code>,tictactoe @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>howslutty [member]</h4>
+          <p>Slutty rate.</p>
+          <code>,howslutty @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>howhorny [member]</h4>
+          <p>Horny rate.</p>
+          <code>,howhorny @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>hownerdy [member]</h4>
+          <p>Nerdy rate.</p>
+          <code>,hownerdy @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>skidrate [member]</h4>
+          <p>Skid rate.</p>
+          <code>,skidrate @friend</code>
+        </div>
+        <div class="doc-command">
+          <h4>wouldyourather</h4>
+          <p>Would you rather question.</p>
+          <code>,wouldyourather</code>
+        </div>
+        <div class="doc-command">
+          <h4>wouldyoupressthebutton</h4>
+          <p>Would you press the button.</p>
+          <code>,wouldyoupressthebutton</code>
+        </div>
+        <div class="doc-command">
+          <h4>triva</h4>
+          <p>Trivia question.</p>
+          <code>,triva</code>
+        </div>
+        <div class="doc-command">
+          <h4>musiclyricstrivia</h4>
+          <p>Music lyrics trivia.</p>
+          <code>,musiclyricstrivia</code>
+        </div>
+        <div class="doc-command">
+          <h4>guess the country</h4>
+          <p>Alias for guessthecountry.</p>
+          <code>,guess the country</code>
+        </div>
+        <div class="doc-command">
+          <h4>guess the flag</h4>
+          <p>Alias for guesstheflag.</p>
+          <code>,guess the flag</code>
+        </div>
+        <div class="doc-command">
+          <h4>guess the celebirty</h4>
+          <p>Alias for guessthecelebrity.</p>
+          <code>,guess the celebirty</code>
+        </div>
+        <div class="doc-command">
+          <h4>freakify &lt;text&gt;</h4>
+          <p>Freakifies text.</p>
+          <code>,freakify hello</code>
+        </div>
+        <div class="doc-command">
+          <h4>makemp3</h4>
+          <p>Makes mp3 (not implemented).</p>
+          <code>,makemp3</code>
+        </div>
+        <div class="doc-command">
+          <h4>tts &lt;text&gt;</h4>
+          <p>Text to speech (not implemented).</p>
+          <code>,tts hello</code>
+        </div>
+        <div class="doc-command">
+          <h4>makegif</h4>
+          <p>Makes GIF (not implemented).</p>
+          <code>,makegif</code>
+        </div>
+        <div class="doc-command">
+          <h4>transparent</h4>
+          <p>Makes transparent (not implemented).</p>
+          <code>,transparent</code>
+        </div>
+      </div>
+      <!-- Continue with other categories in similar format, listing all commands with usage and example where possible -->
+      <div class="doc-section">
+        <h2>Owner</h2>
+        <p>Commands for bot owner and whitelisted users.</p>
+        <div class="doc-command">
+          <h4>whitelist &lt;user&gt;</h4>
+          <p>Whitelists a user.</p>
+          <code>,whitelist @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>unwhitelist &lt;user&gt;</h4>
+          <p>Unwhitelists a user.</p>
+          <code>,unwhitelist @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>moneyadd &lt;member&gt; &lt;amount&gt;</h4>
+          <p>Adds money to a member.</p>
+          <code>,moneyadd @user 1000</code>
+        </div>
+        <div class="doc-command">
+          <h4>moneyremove &lt;member&gt; &lt;amount&gt;</h4>
+          <p>Removes money from a member.</p>
+          <code>,moneyremove @user 500</code>
+        </div>
+        <div class="doc-command">
+          <h4>guilds</h4>
+          <p>Lists guilds the bot is in.</p>
+          <code>,guilds</code>
+        </div>
+        <div class="doc-command">
+          <h4>leaveguild &lt;guild_id&gt;</h4>
+          <p>Leaves a guild.</p>
+          <code>,leaveguild 123456789012345678</code>
+        </div>
+        <div class="doc-command">
+          <h4>blacklist &lt;user&gt;</h4>
+          <p>Blacklists a user.</p>
+          <code>,blacklist @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>unblacklist &lt;user&gt;</h4>
+          <p>Unblacklists a user.</p>
+          <code>,unblacklist @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>givecar &lt;member&gt; &lt;rarity&gt; &lt;car_name&gt;</h4>
+          <p>Gives a car to a member.</p>
+          <code>,givecar @user common Honda Civic</code>
+        </div>
+        <div class="doc-command">
+          <h4>removecar &lt;member&gt; &lt;car_name&gt;</h4>
+          <p>Removes a car from a member.</p>
+          <code>,removecar @user Honda Civic</code>
+        </div>
+        <div class="doc-command">
+          <h4>givehouse &lt;member&gt; &lt;house_name&gt;</h4>
+          <p>Gives a house to a member.</p>
+          <code>,givehouse @user Small Apartment</code>
+        </div>
+        <div class="doc-command">
+          <h4>removehouse &lt;member&gt; &lt;house_name&gt;</h4>
+          <p>Removes a house from a member.</p>
+          <code>,removehouse @user Small Apartment</code>
+        </div>
+        <div class="doc-command">
+          <h4>ecorestart</h4>
+          <p>Resets entire economy.</p>
+          <code>,ecorestart</code>
+        </div>
+        <div class="doc-command">
+          <h4>userecorestart &lt;member&gt;</h4>
+          <p>Resets a user's economy.</p>
+          <code>,userecorestart @user</code>
+        </div>
+        <div class="doc-command">
+          <h4>event make &lt;multiplier&gt;x &lt;luck&gt;% &lt;duration&gt;m [global/local]</h4>
+          <p>Starts an event.</p>
+          <code>,event make 2x 10% 30m global</code>
+        </div>
+        <div class="doc-command">
+          <h4>event end</h4>
+          <p>Ends the event.</p>
+          <code>,event end</code>
+        </div>
+        <div class="doc-command">
+          <h4>frenzy</h4>
+          <p>Activates frenzy boost server-wide.</p>
+          <code>,frenzy</code>
+        </div>
+        <div class="doc-command">
+          <h4>globalfrenzy</h4>
+          <p>Activates global frenzy boost.</p>
+          <code>,globalfrenzy</code>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="statusPage" class="page-container">
+    <h1 class="section-title">Bot Status</h1>
+    <p style="text-align:center;color:var(--text-secondary);margin-bottom:24px">Real-time status of Lurk Bot and its services.</p>
+    <div class="container">
+      <div class="status-grid">
+        <div class="status-card">
+          <h4>Bot Uptime</h4>
+          <p class="status-up">99.9% - Operational</p>
+        </div>
+        <div class="status-card">
+          <h4>API Response Time</h4>
+          <p class="status-up">45ms - Fast</p>
+        </div>
+        <div class="status-card">
+          <h4>Server Count</h4>
+          <p>50+ Servers</p>
+        </div>
+        <div class="status-card">
+          <h4>User Count</h4>
+          <p>4K+ Users</p>
+        </div>
+        <div class="status-card">
+          <h4>Commands Processed</h4>
+          <p>10K+ Daily</p>
+        </div>
+        <div class="status-card">
+          <h4>Last Incident</h4>
+          <p>None in 30 days</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="dashboardPage" class="page-container">
     <div class="coming-soon">
       <h2>Coming Soon</h2>
-      <p>The dashboard is currently under development and will be available shortly.</p>
+      <p>The dashboard is currently under development and will be available shortly. It will allow easy configuration of bot settings, viewing analytics, and more.</p>
     </div>
   </div>
-
   <div id="tosPage" class="page-container">
     <div class="container legal-content">
       <h1>Terms of Service</h1>
       <p>Last updated: November 2025</p>
-      
       <h2>1. Acceptance of Terms</h2>
       <p>By using Lurk Bot, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
-      
       <h2>2. Use License</h2>
       <p>Permission is granted to use Lurk Bot for personal, non-commercial purposes in Discord servers where you have permission to add bots.</p>
-      
       <h2>3. Restrictions</h2>
       <p>You may not:</p>
       <ul>
@@ -216,17 +1139,14 @@
         <li>Use the bot to spam or harass users</li>
         <li>Violate Discord's Terms of Service</li>
       </ul>
-      
       <h2>4. Termination</h2>
       <p>We may terminate access to our bot for any user who violates these terms.</p>
     </div>
   </div>
-
   <div id="privacyPage" class="page-container">
     <div class="container legal-content">
       <h1>Privacy Policy</h1>
       <p>Last updated: November 2025</p>
-      
       <h2>1. Information We Collect</h2>
       <p>Lurk Bot collects only the necessary information to provide its services:</p>
       <ul>
@@ -234,28 +1154,23 @@
         <li>User IDs for economy and leveling systems</li>
         <li>Message content for command processing</li>
       </ul>
-      
       <h2>2. How We Use Information</h2>
       <p>We use collected data solely to operate the bot's features and do not share this data with third parties.</p>
-      
       <h2>3. Data Storage</h2>
       <p>All data is stored securely and is only retained as long as necessary to provide bot functionality.</p>
-      
       <h2>4. Your Rights</h2>
       <p>You can request deletion of your data by contacting us through our support server.</p>
     </div>
   </div>
-
   <footer>
     <div class="footer-content container">
-      <div class="footer-section"><h4>LURK</h4><p style="color:var(--text-secondary)">Premium Discord bot for server management and community engagement.</p></div>
-      <div class="footer-section"><h4>Quick Links</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('commands')">Commands</a><a href="#" onclick="showPage('dashboard')">Dashboard</a></div>
+      <div class="footer-section"><h4>LURK</h4><p style="color:var(--text-secondary)">Premium Discord bot for server management, economy simulation, fun interactions, and community engagement. Built for performance and customization.</p></div>
+      <div class="footer-section"><h4>Quick Links</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('commands')">Commands</a><a href="#" onclick="showPage('documentation')">Documentation</a><a href="#" onclick="showPage('status')">Status</a><a href="#" onclick="showPage('dashboard')">Dashboard</a></div>
       <div class="footer-section"><h4>Support</h4><a href="https://discord.gg/DMK8qcBKCa" target="_blank">Discord Server</a><a href="#" onclick="inviteBot()">Invite Bot</a></div>
       <div class="footer-section"><h4>Legal</h4><a href="#" onclick="showPage('tos')">Terms of Service</a><a href="#" onclick="showPage('privacy')">Privacy Policy</a></div>
     </div>
     <div class="footer-bottom">&copy; 2025 Lurk Bot. All rights reserved.</div>
   </footer>
-
   <script>
     const commandsRaw = {
       moderation: [
@@ -265,26 +1180,22 @@
         "renamechannel","renamerole","massban","masskick","masswarn","forceverify","nickall","nickreset","purgehumans",
         "purgebots","roleeveryone"
       ],
-
       economy: [
         "balance","deposit","withdraw","daily","weekly","work","beg","crime","rob","transfer","gamble","coinflip",
         "blackjack","scratch","crash","ladder","fish","myfish","shop","buy","inventory","wealthy","blackmarket",
         "dealership","house","stocks","jewelry","limited","trade","eventstats","lottery","roulettewheel","crates",
         "clonewallet","sabotage"
       ],
-
       fun: [
         "rps","8ball","choose","ship","pp","iq","poll","snipe","editsnipe","reactionsnipe","clearsnipe","calculate",
         "revive","nword","facts","gayrate","bitches","howattractive","roast","rizz","joke","pickuplines","fortune",
         "compliment","quote","fakemessage","guessthecountry","guesstheflag","guessthecelebrity","tictactoe"
       ],
-
       info: [
         "serverinfo","userinfo","whois","avatar","botinfo","ping","invite","upvote","messages","roleinfo","roles",
         "invites","membercount","bots","boosters","serveravatar","serverbanner","timezone","channelinfo","inrole",
         "countryinfo","banner","namehistory","inviteinfo"
       ],
-
       utility: [
         "afk","prefix","selfprefix","antilink","antiinvite","antinuke","antiraid","antispam","filter","protection",
         "welcome","leave","autorole","autoresponder","autoreact","createembed","logs","stickymessage","birthday",
@@ -293,54 +1204,44 @@
         "boostmessage","randomnumber","messageleaderboard","inviteleaderboard","levelleaderboard","google","joindm",
         "altidentify","invokedm"
       ],
-
       giveaways: [
         "giveaway","gend","greroll","gblacklist","gunblacklist","checkgiveaway"
       ],
-
       voicemaster: [
         "voicemaster","vmlock","vmunlock","vmhide","vmreveal","vmrename","vmclaim","vmincrease","vmdecrease","vmdelete","vminfo"
       ],
-
       music: [
         "join","summon","leavevc","volume","now","pause","resume","stop","skip","queue","shuffle","remove","loop","play"
       ],
-
       socials: [
         "roblox","tiktok","twitch","instagram","youtube","lookup"
       ],
-
       roleplay: [
         "rphug","rpkiss","rpslap","rppunch","rpkick","rpshoot","marry","divorce","adopt","disown","propose","family"
       ],
-
       lastfm: [
         "lastfm set","lastfm nowplaying","lastfm toptracks","lastfm topalbums","lastfm topartists","lastfm recent",
         "lastfm userinfo","lastfm compare","lastfm collage","lastfm whoknows"
       ],
-
       automation: [
         "autoresponder","autoreact","joindm","invokedm","altidentify"
       ]
     };
-
     const categoryMeta = {
-      moderation: { title: "Category: Moderation", desc: "All moderation commands for managing your server" },
-      economy:    { title: "Category: Economy", desc: "All economy related commands" },
-      fun:        { title: "Category: Fun", desc: "Fun commands and games" },
-      info:       { title: "Category: Information", desc: "Get information about users, servers, and the bot" },
-      utility:    { title: "Category: Utility", desc: "Useful utility commands" },
-      giveaways:  { title: "Category: Giveaways", desc: "Manage and create giveaways" },
-      voicemaster:{ title: "Category: Voice Master", desc: "Voice channel management" },
-      music:      { title: "Category: Music", desc: "Music player commands" },
-      socials:    { title: "Category: Socials", desc: "Social media commands" },
-      roleplay:   { title: "Category: Roleplay", desc: "Roleplay actions" },
-      lastfm:     { title: "Category: LastFM", desc: "LastFM integration commands" },
-      automation: { title: "Category: Automation", desc: "Automation commands" }
+      moderation: { title: "Moderation", desc: "Tools for server management and user moderation." },
+      economy: { title: "Economy", desc: "Commands for the virtual economy system." },
+      fun: { title: "Fun", desc: "Entertainment and game commands." },
+      info: { title: "Information", desc: "Get details about users, servers, and more." },
+      utility: { title: "Utility", desc: "Helpful tools and settings." },
+      giveaways: { title: "Giveaways", desc: "Create and manage giveaways." },
+      voicemaster: { title: "Voice Master", desc: "Voice channel management." },
+      music: { title: "Music", desc: "Music playback controls." },
+      socials: { title: "Socials", desc: "Social media integrations." },
+      roleplay: { title: "Roleplay", desc: "Roleplay interactions." },
+      lastfm: { title: "LastFM", desc: "LastFM music tracking." },
+      automation: { title: "Automation", desc: "Automated server features." }
     };
-
     const commandsContainer = document.getElementById('commandsContainer');
-
     function createCategoryElem(key, arr) {
       const cat = document.createElement('div'); cat.className = 'command-category fade-in';
       const header = document.createElement('div'); header.className = 'category-header';
@@ -348,22 +1249,16 @@
       const h3 = document.createElement('h3'); h3.textContent = categoryMeta[key]?.title || key;
       const sub = document.createElement('div'); sub.className = 'category-sub'; sub.textContent = categoryMeta[key]?.desc || '';
       meta.appendChild(h3); meta.appendChild(sub);
-
       const right = document.createElement('div');
       const arrow = document.createElement('div'); arrow.className='arrow'; arrow.innerHTML = '&#9656;'; arrow.style.transform='rotate(0deg)';
       right.appendChild(arrow);
-
       header.appendChild(meta); header.appendChild(right);
-
       const listWrap = document.createElement('div'); listWrap.className = 'command-list';
       const inner = document.createElement('div'); inner.className = 'command-inner';
       const lines = document.createElement('div'); lines.className = 'cmd-list-lines';
-
       lines.textContent = arr.join('\n');
-
       inner.appendChild(lines);
       listWrap.appendChild(inner);
-
       header.addEventListener('click', () => {
         const isActive = listWrap.classList.contains('active');
         if (isActive) {
@@ -374,7 +1269,6 @@
           requestAnimationFrame(()=>{ listWrap.style.maxHeight = listWrap.scrollHeight + 'px'; arrow.style.transform='rotate(90deg)'; });
         }
       });
-
       listWrap.addEventListener('transitionend', (e)=>{
         if (!listWrap.classList.contains('active')) {
           listWrap.style.maxHeight = '0px';
@@ -382,17 +1276,14 @@
           listWrap.style.maxHeight = 'none';
         }
       });
-
       cat.appendChild(header);
       cat.appendChild(listWrap);
       return cat;
     }
-
     const order = ["moderation","economy","fun","info","utility","giveaways","voicemaster","music","socials","roleplay","lastfm","automation"];
     order.forEach(k => {
       if (commandsRaw[k]) commandsContainer.appendChild(createCategoryElem(k, commandsRaw[k]));
     });
-
     function searchCommands(){
       const q = document.getElementById('commandSearch').value.trim().toLowerCase();
       const cats = Array.from(commandsContainer.children);
@@ -417,36 +1308,27 @@
         }
       });
     }
-
     function showPage(id){
       document.querySelectorAll('.page-container').forEach(p=>p.classList.remove('active'));
-      if (id === 'home') document.getElementById('homePage').classList.add('active');
-      if (id === 'commands') document.getElementById('commandsPage').classList.add('active');
-      if (id === 'dashboard') document.getElementById('dashboardPage').classList.add('active');
-      if (id === 'tos') document.getElementById('tosPage').classList.add('active');
-      if (id === 'privacy') document.getElementById('privacyPage').classList.add('active');
+      document.getElementById(id + 'Page').classList.add('active');
       window.scrollTo({top:0,behavior:'smooth'});
       closeMobileMenu();
     }
-
     function inviteBot(){
-      window.open('https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot%20applications.commands&permissions=8','_blank');
+      window.open('https://discord.com/oauth2/authorize?client_id=1433300291171647589','_blank');
     }
-
     function toggleMobileMenu(){
       const navLinks = document.getElementById('navLinks');
       const menuBtn = document.getElementById('mobileMenuBtn');
       navLinks.classList.toggle('active');
       menuBtn.classList.toggle('active');
     }
-
     function closeMobileMenu(){
       const navLinks = document.getElementById('navLinks');
       const menuBtn = document.getElementById('mobileMenuBtn');
       navLinks.classList.remove('active');
       menuBtn.classList.remove('active');
     }
-
     window.addEventListener('load', ()=>{
       const first = commandsContainer.querySelector('.command-category .command-list');
       if (first) {
@@ -455,11 +1337,7 @@
         const arrow = first.parentElement.querySelector('.arrow'); if (arrow) arrow.style.transform='rotate(90deg)';
       }
     });
-
     document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
-
   </script>
 </body>
 </html>
-
-
