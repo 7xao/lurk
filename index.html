@@ -44,9 +44,11 @@
     .nav-links a:hover{color:var(--accent-primary)}
     .nav-cta .btn{margin-left:12px}
 
-    .btn{display:inline-block;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none;transition:all 0.3s ease}
     .btn-primary{background:linear-gradient(135deg,var(--accent-primary),var(--accent-secondary));color:#fff;box-shadow:0 8px 30px rgba(91,125,143,.08)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(91,125,143,.15)}
     .btn-secondary{background:var(--bg-tertiary);border:1px solid var(--border-color);color:var(--text-primary)}
+    .btn-secondary:hover{background:var(--bg-secondary);border-color:var(--accent-primary)}
 
     .hero{padding:100px 20px 40px;text-align:center}
     .hero h1{font-size:3.6rem;margin-bottom:8px;background:linear-gradient(135deg,var(--accent-primary),var(--accent-secondary));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -65,14 +67,16 @@
     .feature-card{background:var(--bg-secondary);padding:18px;border-radius:12px;border:1px solid var(--border-color);transition:transform .28s,box-shadow .28s}
     .feature-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.45);border-color:var(--accent-primary)}
 
-    .page-container{display:none;padding:80px 20px 120px}
+    .page-container{display:none;padding:80px 20px 120px;animation:fadeInUp 0.5s ease forwards}
     .page-container.active{display:block}
     .section-title{text-align:center;font-size:2rem;margin-bottom:18px;color:var(--text-primary)}
-    .search-box{width:100%;max-width:1000px;margin:0 auto 18px;background:var(--bg-secondary);border:1px solid var(--border-color);padding:12px;border-radius:8px;color:var(--text-primary);display:block}
+    .search-box{width:100%;max-width:1000px;margin:0 auto 18px;background:var(--bg-secondary);border:1px solid var(--border-color);padding:12px;border-radius:8px;color:var(--text-primary);display:block;transition:all 0.3s ease}
+    .search-box:focus{outline:none;border-color:var(--accent-primary);box-shadow:0 0 0 2px rgba(91,125,143,0.2)}
 
     .commands-wrapper{max-width:1100px;margin:0 auto;padding:10px}
     .command-category{margin-bottom:14px;border-radius:12px;overflow:hidden;border:1px solid var(--border-color);background:linear-gradient(180deg,var(--bg-secondary), var(--bg-tertiary))}
-    .category-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;gap:12px}
+    .category-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;gap:12px;transition:background-color 0.3s ease}
+    .category-header:hover{background-color:var(--glass)}
     .category-header h3{color:var(--accent-primary);font-size:1.05rem}
     .category-sub{color:var(--text-secondary);font-size:0.9rem;margin-top:6px}
     .arrow{transition:transform .25s;opacity:.9}
@@ -85,6 +89,7 @@
 
     .fade-in{animation:fadeIn .45s ease forwards;opacity:0}
     @keyframes fadeIn{to{opacity:1}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
     .dashboard-container{display:none}
     .dashboard-container.active{display:block}
@@ -96,12 +101,30 @@
     footer{margin-top:40px;padding:28px 20px;background:var(--bg-secondary);border-top:1px solid var(--border-color)}
     .footer-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
     .footer-section h4{color:var(--accent-primary);margin-bottom:8px}
-    .footer-bottom{text-align:center;color:var(--text-secondary);margin-top:18px}
+    .footer-section a{display:block;color:var(--text-secondary);text-decoration:none;margin-bottom:6px;transition:color 0.3s ease}
+    .footer-section a:hover{color:var(--accent-primary)}
+    .footer-bottom{text-align:center;color:var(--text-secondary);margin-top:18px;padding-top:18px;border-top:1px solid var(--border-color)}
+
+    .mobile-menu-btn{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px}
+    .mobile-menu-btn span{width:20px;height:2px;background-color:var(--text-primary);transition:all 0.3s ease}
+
+    .legal-content{max-width:800px;margin:0 auto;line-height:1.6}
+    .legal-content h2{color:var(--accent-primary);margin:24px 0 12px 0}
+    .legal-content h3{color:var(--text-primary);margin:18px 0 8px 0}
+    .legal-content p{margin-bottom:16px;color:var(--text-secondary)}
+    .legal-content ul{margin-bottom:16px;padding-left:20px;color:var(--text-secondary)}
 
     @media (max-width:768px){
       .hero h1{font-size:2.4rem}
       nav{padding:0 14px}
-      .nav-links{display:none}
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg-secondary);flex-direction:column;padding:20px;border-bottom:1px solid var(--border-color);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+      .nav-links.active{display:flex}
+      .mobile-menu-btn{display:flex}
+      .mobile-menu-btn.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+      .mobile-menu-btn.active span:nth-child(2){opacity:0}
+      .mobile-menu-btn.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+      .hero-buttons{flex-direction:column;align-items:center}
+      .footer-content{grid-template-columns:1fr;text-align:center}
     }
   </style>
 </head>
@@ -122,6 +145,12 @@
 
       <div class="nav-cta">
         <a class="btn btn-primary" href="#" onclick="inviteBot()">Add to Discord</a>
+      </div>
+
+      <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
   </nav>
@@ -168,12 +197,61 @@
     </div>
   </div>
 
+  <div id="tosPage" class="page-container">
+    <div class="container legal-content">
+      <h1>Terms of Service</h1>
+      <p>Last updated: January 2025</p>
+      
+      <h2>1. Acceptance of Terms</h2>
+      <p>By using Lurk Bot, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
+      
+      <h2>2. Use License</h2>
+      <p>Permission is granted to use Lurk Bot for personal, non-commercial purposes in Discord servers where you have permission to add bots.</p>
+      
+      <h2>3. Restrictions</h2>
+      <p>You may not:</p>
+      <ul>
+        <li>Use the bot for illegal purposes</li>
+        <li>Attempt to reverse engineer or modify the bot</li>
+        <li>Use the bot to spam or harass users</li>
+        <li>Violate Discord's Terms of Service</li>
+      </ul>
+      
+      <h2>4. Termination</h2>
+      <p>We may terminate access to our bot for any user who violates these terms.</p>
+    </div>
+  </div>
+
+  <div id="privacyPage" class="page-container">
+    <div class="container legal-content">
+      <h1>Privacy Policy</h1>
+      <p>Last updated: January 2025</p>
+      
+      <h2>1. Information We Collect</h2>
+      <p>Lurk Bot collects only the necessary information to provide its services:</p>
+      <ul>
+        <li>Server IDs for configuration storage</li>
+        <li>User IDs for economy and leveling systems</li>
+        <li>Message content for command processing</li>
+      </ul>
+      
+      <h2>2. How We Use Information</h2>
+      <p>We use collected data solely to operate the bot's features and do not share this data with third parties.</p>
+      
+      <h2>3. Data Storage</h2>
+      <p>All data is stored securely and is only retained as long as necessary to provide bot functionality.</p>
+      
+      <h2>4. Your Rights</h2>
+      <p>You can request deletion of your data by contacting us through our support server.</p>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-content container">
       <div class="footer-section"><h4>LURK</h4><p style="color:var(--text-secondary)">Premium Discord bot for server management and community engagement.</p></div>
       <div class="footer-section"><h4>Quick Links</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('commands')">Commands</a><a href="#" onclick="showPage('dashboard')">Dashboard</a></div>
       <div class="footer-section"><h4>Support</h4><a href="https://discord.gg/DMK8qcBKCa" target="_blank">Discord Server</a><a href="#" onclick="inviteBot()">Invite Bot</a></div>
-      <div class="footer-section"><h4>Legal</h4><a href="#">Terms of Service</a><a href="#">Privacy Policy</a></div>
+      <div class="footer-section"><h4>Legal</h4><a href="#" onclick="showPage('tos')">Terms of Service</a><a href="#" onclick="showPage('privacy')">Privacy Policy</a></div>
     </div>
     <div class="footer-bottom">&copy; 2025 Lurk Bot. All rights reserved.</div>
   </footer>
@@ -345,11 +423,28 @@
       if (id === 'home') document.getElementById('homePage').classList.add('active');
       if (id === 'commands') document.getElementById('commandsPage').classList.add('active');
       if (id === 'dashboard') document.getElementById('dashboardPage').classList.add('active');
+      if (id === 'tos') document.getElementById('tosPage').classList.add('active');
+      if (id === 'privacy') document.getElementById('privacyPage').classList.add('active');
       window.scrollTo({top:0,behavior:'smooth'});
+      closeMobileMenu();
     }
 
     function inviteBot(){
       window.open('https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot%20applications.commands&permissions=8','_blank');
+    }
+
+    function toggleMobileMenu(){
+      const navLinks = document.getElementById('navLinks');
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      navLinks.classList.toggle('active');
+      menuBtn.classList.toggle('active');
+    }
+
+    function closeMobileMenu(){
+      const navLinks = document.getElementById('navLinks');
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      navLinks.classList.remove('active');
+      menuBtn.classList.remove('active');
     }
 
     window.addEventListener('load', ()=>{
@@ -361,7 +456,8 @@
       }
     });
 
+    document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
   </script>
 </body>
-
 </html>
